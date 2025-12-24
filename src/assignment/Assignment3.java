@@ -255,6 +255,21 @@ public class Assignment3 {
 		printArrayNew(ans, ans.length);
 	}
 	
+	public int[] mergeTwoArrays(int[] arr1, int[] arr2, int n1, int n2) {
+		int[] ans = new int[n1+n2];
+		int idx = 0;
+		for(int i=0; i<n1; i++) {
+			ans[idx] = arr1[i];
+			idx++;
+		}
+		
+		for(int j=0; j<n2; j++) {
+			ans[idx] = arr2[j];
+			idx++;
+		}
+		return ans;
+	}
+	
 	public int[] reversedArray(int[] arr, int n) {
 		int[] reversed = new int[n];
 		int j = 0;
@@ -264,6 +279,50 @@ public class Assignment3 {
 		}
 		return reversed;
 	}
+	
+	private int reverseEachElement(int num) {
+		int reversed = 0;
+		int sign = num < 0 ? -1 : 1;
+		num = Math.abs(num);
+		while(num > 0) {
+			int digit = num % 10;
+			reversed = reversed * 10 + digit;
+			num = num / 10;
+		}
+		return reversed*sign;
+	}
+	
+	public int[] revrseElemntsInArray(int[] arr, int n) {
+		int[] ans = new int[n];
+		for(int i=0; i<n; i++) {
+			ans[i] = reverseEachElement(arr[i]);
+		}
+		return ans;
+	}
+	
+	public int[] insertAtPosition(int[] arr, int n, int pos, int x) {
+
+	    if (pos < 1 || pos > n + 1) {
+	        System.out.println("Invalid position");
+	        return arr;
+	    }
+
+	    int idx = pos - 1;
+	    int[] newArr = new int[n + 1];
+
+	    for (int i = 0; i < idx; i++) {
+	        newArr[i] = arr[i];
+	    }
+
+	    newArr[idx] = x;
+
+	    for (int i = idx; i < n; i++) {
+	        newArr[i + 1] = arr[i];
+	    }
+
+	    return newArr;
+	}
+
 	
 	public int largestElement(int[] arr, int n) {
 		int ans = arr[0];
