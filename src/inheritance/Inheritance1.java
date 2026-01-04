@@ -1,10 +1,10 @@
 package inheritance;
 
-class Employee {
+class EmployeeBase {
 	public int id;
 	public double salary;
 	
-	Employee(int id, double salary) {
+	EmployeeBase(int id, double salary) {
 		this.id = id;
 		this.salary = salary;
 	}
@@ -14,7 +14,7 @@ class Employee {
 	}
 }
 
-class Manager extends Employee {
+class Manager extends EmployeeBase {
 	
 	double bonus;
 	
@@ -32,7 +32,7 @@ class Manager extends Employee {
 public class Inheritance1 {
 
 	public static void main(String[] args) {
-		Employee e1 = new Employee(61416, 25000);
+		EmployeeBase e1 = new EmployeeBase(61416, 25000);
 		e1.display();
 		Manager m1 = new Manager(61416, 25000, 5000);
 		m1.display();

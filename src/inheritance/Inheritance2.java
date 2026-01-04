@@ -30,7 +30,7 @@ public class Inheritance2 {
 	public static void main(String[] args) {
 		Car c1 = new Car("Volvo", 150);
 		c1.display();
-		System.out.println(c1.brand + " " + c1.speed);
+//		System.out.println(c1.brand + " " + c1.speed);
 		
 	}
 
