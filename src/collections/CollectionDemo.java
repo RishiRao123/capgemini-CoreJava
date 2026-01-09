@@ -3,6 +3,15 @@ package collections;
 import java.util.ArrayList;
 import java.util.Collection;
 
+// Collection is an object that groups multiple objects into one single unit or entity. It is base 
+// interface or root of collection hierarchy(not for map) extending iterator interface.
+
+// Collection framework is set of interfaces, classes, algorithms provided by java to store and 
+// manipulate groups of objects effectively
+
+// Collections is a class present in java utility package , contains methods which can operate on 
+// collection objects to manipulate data (sorting, searching etc.)
+
 public class CollectionDemo {
 
 	public static void main(String[] args) {
