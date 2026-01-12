@@ -20,7 +20,10 @@ public class LinkedListDemo {
 		
 		System.out.println("List: " + l1 + "\nSize: " + l1.size());
 		
-
+		// constructors
+		// 1. LinkedList<T> ll = new LinkedList<>();
+		// 2. LinkedList<T> ll = new LinkedList<>(Collection);
+		
 	}
 
 }
