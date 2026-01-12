@@ -15,7 +15,7 @@ public class StackDemo {
 		s1.pop();
 		s1.pop();
 		System.out.println("final stack: " + s1);
-		System.out.println(s1.search(1));
+		System.out.println(s1.search(1)); // top to bottom numbering
 		
 		// constructor:
 		// 1. Stack<> s = new Stack()
