@@ -39,7 +39,7 @@ class Student {
 	}
 }
 
-public class ObjectClassDemo {
+public class ObjectClassDemo1 {
 
 	public static void main(String[] args) {
 

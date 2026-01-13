@@ -30,45 +30,50 @@ public class CursorsDemo {
 //		System.out.println("Vector: " + v1);
 
 		Enumeration<Integer> e = v1.elements();
-	
+
 		while (e.hasMoreElements()) {
 			Integer i = e.nextElement();
 			if (i % 2 == 0)
 				System.out.print(i + " ");
 		}
 		System.out.println();
-		
-		// Limitations: applicable only for legacy classes. Can only perform read operations.
+
+		// Limitations: applicable only for legacy classes. Can only perform read
+		// operations.
 		// Iterator provides a solution for these.
-		
+
 		// 2. Iterator:
-		// methods : 
+		// methods :
 		// public boolean hasNext(), public Object next(), public void remove();
 		// Iterator i = C.iterator(); C->collections
-		
+
 		ArrayList<Integer> al1 = new ArrayList<>();
-		for(int i=0; i<=10; i++) {
+		for (int i = 0; i <= 10; i++) {
 			al1.add(i);
 		}
 		System.out.println("List: " + al1);
 		Iterator<Integer> itr = al1.iterator();
 		// removing all odd elements from al1
-		while(itr.hasNext()) {
+		while (itr.hasNext()) {
 			Integer i = (Integer) itr.next();
-			if(i % 2 != 0)
+			if (i % 2 != 0)
 				itr.remove();
 		}
 		System.out.println("List Even: " + al1);
-		
-		// Limitations: only one direction in forward or backward, replace, addition is not available
+
+		// Limitations: only one direction in forward or backward, replace, addition is
+		// not available
 		// List iterator overcomes them.
-		
+
 		// 3. ListIterator
 		// ListIterator ltr = l.ListIteartor(); l->Any list object
-		// methods: public boolean hasNext(), public Object next(), public int nextIndex(),
-		// public boolean hasPrevious(), public Object previous(), public int previousIndex();
-		// public void set(Object obj), public void remove(), public void add(Object obj)
-		
+		// methods: public boolean hasNext(), public Object next(), public int
+		// nextIndex(),
+		// public boolean hasPrevious(), public Object previous(), public int
+		// previousIndex();
+		// public void set(Object obj), public void remove(), public void add(Object
+		// obj)
+
 		LinkedList<String> l1 = new LinkedList<>();
 		l1.add("Jhon Snow");
 		l1.add("Rob Stark");
@@ -78,19 +83,36 @@ public class CursorsDemo {
 		l1.add("Rickon Stark");
 		System.out.println("List: " + l1);
 		ListIterator<String> ltr = l1.listIterator();
-		while(ltr.hasNext()) {
+		while (ltr.hasNext()) {
 			String str = ltr.next();
-			if(str.equals("Rickon Stark")) {
+			if (str.equals("Rickon Stark")) {
 				ltr.remove();
-			} else if(str.equals("Rob Stark")) {
+			} else if (str.equals("Rob Stark")) {
 				ltr.add("Nedd stark");
-			} else if(str.equals("Brandon Stark")) {
+			} else if (str.equals("Brandon Stark")) {
 				ltr.set("Crow God");
 			}
 		}
 		System.out.println("List after: " + l1);
+
+		// ListIterator task
+		ArrayList<String> al2 = new ArrayList<>();
+		al2.add("new");
+		al2.add("in-progress");
+		al2.add("new");
+		al2.add("done");
+		System.out.println("List: " + al2);
+		ListIterator<String> lit = al2.listIterator();
+		while(lit.hasNext()) {
+			String str = lit.next();
+			if(str.equals("new")) {
+				lit.set("queued");
+			} else if(str.equals("in-progress")) {
+				lit.add("review");
+			}
+		}
+		System.out.println("After List: " + al2);
 		
 		
 	}
-
 }
