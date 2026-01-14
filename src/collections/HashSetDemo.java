@@ -6,6 +6,10 @@ public class HashSetDemo {
 
 	public static void main(String[] args) {
 		
+//		Need uniqueness + sorting → TreeSet
+//		Need uniqueness + speed → HashSet
+//		Need uniqueness + order → LinkedHashSet
+		
 		HashSet<String> hs1 = new HashSet<>();
 		hs1.add("A");
 		hs1.add("B");
