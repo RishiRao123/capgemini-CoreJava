@@ -3,6 +3,7 @@ package collections;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.ListIterator;
 import java.util.Map;
@@ -80,7 +81,7 @@ class SortedSetTask {
 		// Print sorted scores
 		System.out.println("Sorted scores: " + ts);
 		System.out.println("Highest: " + ts.last() + " Lowest: " + ts.first());
-		
+
 	}
 }
 
@@ -88,9 +89,9 @@ class SortedSetTask {
 class MapTask {
 	public void studentRollNumberMapping() {
 		Map<Integer, String> mpp = new HashMap<>();
-		mpp.put(101,  "Rishi");
-		mpp.put(102,  "Amit");
-		mpp.put(101,  "Rahul");
+		mpp.put(101, "Rishi");
+		mpp.put(102, "Amit");
+		mpp.put(101, "Rahul");
 		// Print Map
 		System.out.println("Map: " + mpp);
 		// Print Size
@@ -98,7 +99,27 @@ class MapTask {
 		// Name for roll 101
 		System.out.println("Name of 101: " + mpp.get(101));
 	}
- }
+}
+
+// 6. Marks Processing System
+class HashMapTask {
+	public void marksProcessingSystem() {
+		HashMap<String, Integer> mpp = new HashMap<>();
+		mpp.put("Rishi", 85);
+		mpp.put("Amit", 40);
+		mpp.put("Rahul", 65);
+		mpp.put("karan", 30);
+		// Remove students with marks < 50
+		Iterator<Map.Entry<String, Integer>> it = mpp.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<String, Integer> entry = it.next();
+			if (entry.getValue() < 50) {
+				it.remove();
+			}
+		}
+		System.out.println("Students: " + mpp);
+	}
+}
 
 public class Practice1 {
 
@@ -119,6 +140,9 @@ public class Practice1 {
 		// 5.
 		MapTask mp = new MapTask();
 		mp.studentRollNumberMapping();
+		// 6.
+		HashMapTask hmpt1 = new HashMapTask();
+		hmpt1.marksProcessingSystem();
 	}
 
 }
