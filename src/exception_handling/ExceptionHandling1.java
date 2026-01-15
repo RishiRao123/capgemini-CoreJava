@@ -1,5 +1,6 @@
 package exception_handling;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // The basics of try-catch block
@@ -9,23 +10,28 @@ public class ExceptionHandling1 {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a Value: ");
-		int a = sc.nextInt();
-		System.out.println("Enter b Value: ");
-		int b = sc.nextInt();
-		String s = null;
+
 		try {
-			System.out.println(a / b);// If exception came here it cant go to the down line
-			System.out.println(s.toLowerCase());
+			System.out.print("Enter first number: ");
+			int a = sc.nextInt();
+
+			System.out.print("Enter second number: ");
+			int b = sc.nextInt();
+
+			int result = a / b;
+			System.out.println("Result: " + result);
+
 		} catch (ArithmeticException e) {
-			e.printStackTrace();
-			System.out.println("Caught AE");
-		} catch (NullPointerException e) {
-			System.out.println("Caught");
+			System.out.println("Error: Division by zero is not allowed.");
+
+		} catch (InputMismatchException e) {
+			System.out.println("Error: Please enter valid integer numbers.");
+
+		} finally {
+			System.out.println("Program execution completed.");
+			sc.close();
 		}
-		
-		sc.close();
-		
+
 	}
 
 }

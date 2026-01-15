@@ -1,13 +1,16 @@
 package collections;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 // A practise task on Collection interface
@@ -121,6 +124,70 @@ class HashMapTask {
 	}
 }
 
+// 7. Employee Salary Report
+class TreeMapTask {
+	public void employeeSalaryReport() {
+		TreeMap<Integer, Integer> tmp = new TreeMap<>();
+		tmp.put(103, 50000);
+		tmp.put(101, 70000);
+		tmp.put(102, 60000);
+		// Print the map
+		System.out.println("Salary report:" + tmp);
+	}
+}
+
+//8. Configuration Loader
+class LinkedHashMapTask {
+	public void configurationLoader() {
+		LinkedHashMap<String, String> lhmp = new LinkedHashMap<>();
+		lhmp.put("url", "localhost");
+		lhmp.put("port", "8080");
+		lhmp.put("timeout", "5000");
+		// Prints the entries in same order
+		System.out.println("Configurations: " + lhmp);
+	}
+}
+
+// 9. Unique Products
+class ProductTask {
+	int id;
+	String name;
+
+	ProductTask(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		ProductTask p = (ProductTask) o;
+		return this.id == p.id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Integer.hashCode(id);
+	}
+}
+
+// 10.Sorted Employee Records
+class EmployeeTask {
+	int id;
+	String name;
+	double salary;
+
+	EmployeeTask(int id, String name, double salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+}
+
+
 public class Practice1 {
 
 	public static void main(String[] args) {
@@ -143,6 +210,44 @@ public class Practice1 {
 		// 6.
 		HashMapTask hmpt1 = new HashMapTask();
 		hmpt1.marksProcessingSystem();
+		// 7.
+		TreeMapTask tmpt1 = new TreeMapTask();
+		tmpt1.employeeSalaryReport();
+		// 8.
+		LinkedHashMapTask lhmp1 = new LinkedHashMapTask();
+		lhmp1.configurationLoader();
+		// 9.
+		Set<ProductTask> products = new HashSet<>();
+		products.add(new ProductTask(1, "Phone"));
+		products.add(new ProductTask(2, "Laptop"));
+		products.add(new ProductTask(1, "Keyboard")); // duplicate id
+
+		System.out.println("Products count: " + products.size());
+		for (ProductTask p : products) {
+			System.out.println(p.id + " " + p.name);
+		}
+ 
+		// 10.
+		Comparator<EmployeeTask> salaryComparator = new Comparator<EmployeeTask>() {
+			public int compare(EmployeeTask e1, EmployeeTask e2) {
+				return Double.compare(e1.salary, e2.salary);
+			}
+		};
+		
+		TreeSet<EmployeeTask> employees = new TreeSet<>(salaryComparator);
+
+		employees.add(new EmployeeTask(1, "Rishi", 70000));
+		employees.add(new EmployeeTask(2, "Amit", 50000));
+		employees.add(new EmployeeTask(3, "Rahul", 60000));
+		employees.add(new EmployeeTask(4, "Karan", 50000)); // duplicate salary
+		
+		for (EmployeeTask e : employees) {
+			System.out.println(e.name + " " + e.salary);
+		}
+
+
+	
+
 	}
 
 }
