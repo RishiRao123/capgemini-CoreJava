@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class InvalidAgeException extends Exception {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; // to remove warning from eclipse
 
 	public InvalidAgeException(String message) {
 		super(message);
