@@ -9,7 +9,7 @@ class BasicTask1 {
 		try {
 			int result = a / b;
 			System.out.println("result: " + result);
-		} catch(ArithmeticException e) {
+		} catch (ArithmeticException e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {
 			System.out.println("Division attempt completed\n");
@@ -20,9 +20,9 @@ class BasicTask1 {
 class BasicTask2 {
 	public void invalidArrayIndex(int idx) {
 		try {
-			int[] arr = {2, 5, 8, 7, 25};
+			int[] arr = { 2, 5, 8, 7, 25 };
 			System.out.println(arr[idx]);
-		} catch(ArrayIndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {
 			System.out.println("Array element access attempt completed\n");
@@ -35,11 +35,22 @@ class BasicTask3 {
 		try {
 			int a = 20;
 			int b = 0;
-			System.out.println("result: " + a/b);
-		} catch(ArithmeticException e) {
+			System.out.println("result: " + a / b);
+		} catch (ArithmeticException e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {
 			System.out.println("Executing finally\n");
+		}
+	}
+}
+
+class BasicTask4 {
+	public void numberFormat(String input) {
+		try {
+			int number = Integer.parseInt(input);
+			System.out.println("Converted number: " + number);
+		} catch (NumberFormatException e) {
+			System.out.println("Invalid input! Cannot convert string to integer.");
 		}
 	}
 }
@@ -50,7 +61,7 @@ public class Practise1 {
 		// Basic
 		// 1.
 		BasicTask1 bst1 = new BasicTask1();
-		bst1.divideNumbers(10,5);
+		bst1.divideNumbers(10, 5);
 		bst1.divideNumbers(20, 0);
 		// 2.
 		BasicTask2 bst2 = new BasicTask2();
@@ -60,7 +71,10 @@ public class Practise1 {
 		BasicTask3 bst3 = new BasicTask3();
 		bst3.finallyBehaviour();
 		bst3.finallyBehaviour();
-		
+		// 4.
+		BasicTask4 bst4 = new BasicTask4();
+		bst4.numberFormat("123");
+		bst4.numberFormat("15a");
 
 	}
 
