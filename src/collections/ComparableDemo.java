@@ -1,6 +1,9 @@
 package collections;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -36,6 +39,23 @@ class Product implements Comparable<Product> {
 	}
 }
 
+class Book implements Comparable<Book> {
+	int id;
+	String title;
+	double price;
+	
+	Book(int id, String title, double price) {
+		this.id = id;
+		this.title = title;
+		this.price = price;
+	}
+	
+	@Override
+	public int compareTo(Book b) {
+		return (int) (this.price - b.price);
+	}
+}
+
 public class ComparableDemo {
 
 	public static void main(String[] args) {
@@ -58,11 +78,24 @@ public class ComparableDemo {
 
 		System.out.println("Size: " + st2.size());
 
-		Iterator<Product> itr = st2.iterator();
-		while (itr.hasNext()) {
-			Product p = itr.next();
+		Iterator<Product> itr1 = st2.iterator();
+		while (itr1.hasNext()) {
+			Product p = itr1.next();
 			System.out.println("Product: " + p.name + " Price: " + p.price);
 		}
+		
+		List<Book> book = new ArrayList<>();
+		book.add(new Book(1, "GOT", 222));
+		book.add(new Book(2, "Money", 200));
+
+		Collections.sort(book);
+		
+		Iterator<Book> itr2 = book.iterator();
+		while(itr2.hasNext()) {
+			Book b = itr2.next();
+			System.out.println("ID:" + b.id + " Title: " + b.title + " Price: " + b.price);
+		}
+
 
 	}
 
