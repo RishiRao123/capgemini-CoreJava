@@ -67,7 +67,9 @@ public class Practise2 {
 		} else {
 			System.out.println("No apartments found in this range");
 		}
-
+		
+		sc.close();
+		
 	}
 
 }
